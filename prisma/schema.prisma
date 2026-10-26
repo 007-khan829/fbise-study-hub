@@ -1,0 +1,133 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(cuid())
+  name           String
+  email          String         @unique
+  password       String
+  role           String         @default("STUDENT") // "STUDENT" or "ADMIN"
+  className      String         @default("9") // "9", "10", "11", "12"
+  phone          String?
+  streak         Int            @default(1)
+  lastActiveDate DateTime?      @default(now())
+  isBlocked      Boolean        @default(false)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  quizAttempts   QuizAttempt[]
+  checkedPapers  CheckedPaper[]
+  bookmarks      Bookmark[]
+}
+
+model Paper {
+  id            String         @id @default(cuid())
+  title         String
+  classGrade    String         // "9", "10", "11", "12"
+  subject       String         // "Physics", "Mathematics", etc.
+  year          Int            // 2024, 2023, etc.
+  session       String         @default("Annual") // "Annual", "Supplementary"
+  paperType     String         @default("PAST_PAPER") // "PAST_PAPER", "MODEL_PAPER"
+  fileUrl       String
+  fileSize      String         @default("1.2 MB")
+  downloadCount Int            @default(0)
+  viewCount     Int            @default(0)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  bookmarks     Bookmark[]
+  checkedPapers CheckedPaper[]
+}
+
+model Quiz {
+  id            String         @id @default(cuid())
+  title         String
+  classGrade    String         // "9", "10", "11", "12"
+  subject       String
+  chapter       String         // e.g. "Chapter 1: Kinematics"
+  timeLimit     Int            @default(600) // in seconds (e.g. 10 minutes)
+  isDaily       Boolean        @default(true)
+  scheduledDate DateTime?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  questions     QuizQuestion[]
+  attempts      QuizAttempt[]
+}
+
+model QuizQuestion {
+  id            String   @id @default(cuid())
+  quizId        String
+  quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  question      String
+  optionA       String
+  optionB       String
+  optionC       String
+  optionD       String
+  correctOption String   // "A", "B", "C", or "D"
+  explanation   String
+  marks         Int      @default(1)
+}
+
+model QuizAttempt {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quizId            String
+  quiz              Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  score             Int
+  totalQuestions    Int
+  percentage        Float
+  answersJson       String   // JSON string storing questionId -> selectedOption
+  timeTakenSeconds  Int
+  completedAt       DateTime @default(now())
+}
+
+model CheckedPaper {
+  id                 String   @id @default(cuid())
+  userId             String
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  paperId            String?
+  paper              Paper?   @relation(fields: [paperId], references: [id], onDelete: SetNull)
+  subject            String
+  classGrade         String
+  submissionType     String   // "TYPED", "FILE_UPLOAD"
+  fileUrl            String?
+  studentAnswersText String?
+  totalMarks         Int      @default(100)
+  obtainedMarks      Float
+  percentage         Float
+  grade              String   // "A+", "A", "B", "C", "D", "E", "F"
+  evaluationReport   String   // JSON with breakdown, feedback, marks, rubrics
+  createdAt          DateTime @default(now())
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  paperId   String
+  paper     Paper    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, paperId])
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  category  String   // "DATE_SHEET", "RESULT", "SYLLABUS", "BOARD_UPDATE"
+  content   String
+  link      String?
+  isPinned  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}

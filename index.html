@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBISE Study Hub — One-Click Launcher</title>
+  <link rel="icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.03); }
+    }
+    .glow-effect {
+      animation: pulse-glow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- Top FBISE Notification Bar -->
+  <div class="bg-gradient-to-r from-brand-950 via-brand-900 to-brand-950 border-b border-brand-800 text-xs py-2 px-4 flex items-center justify-between text-slate-300">
+    <div class="flex items-center space-x-2">
+      <span class="bg-gold-500 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] tracking-wider uppercase">Official Launcher</span>
+      <span class="text-brand-200 font-medium">Federal Board of Intermediate &amp; Secondary Education (FBISE) Islamabad</span>
+    </div>
+    <div class="hidden md:flex items-center space-x-4 text-slate-400 text-xs">
+      <span>Tagline: <strong class="text-gold-400">Prepare Smart. Practice Better. Achieve More.</strong></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 flex items-center justify-center text-gold-400 font-black text-xl shadow-lg shadow-brand-900/40 border border-gold-500/40">
+          🎓
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-black text-xl tracking-tight text-white">FBISE</span>
+            <span class="font-black text-xl tracking-tight text-gold-400">Study Hub</span>
+          </div>
+          <p class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">One-Click Project Gateway &amp; Runner</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <a href="https://github.com/007-khan829/fbise-study-hub" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <svg class="w-4 h-4 mr-1.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub Repository
+        </a>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
+          Application Live &amp; Ready
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-8 w-full">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-950/80 border border-gold-500/30 text-xs text-gold-300 mb-4">
+        <span>🚀</span>
+        <span>FBISE Study Hub Local &amp; Public Direct Access</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+        Prepare Smart. Practice Better. <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-gold-400">Achieve More.</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+        Welcome to the master launcher for <strong>FBISE Study Hub</strong>. Click either the <strong>Public Cloudflare URL</strong> for instant internet access from any phone or computer, or the <strong>Local Server URL</strong> for local development.
+      </p>
+    </div>
+
+    <!-- Quick Action Launch Buttons -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      
+      <!-- Primary Live Cloudflare Link -->
+      <div class="relative group bg-gradient-to-br from-brand-950 via-slate-900 to-slate-900 p-6 rounded-2xl border-2 border-brand-600 shadow-xl hover:border-gold-400 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="bg-brand-600/30 text-brand-300 border border-brand-500/40 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+            🌐 Public Live URL (Global)
+          </span>
+          <span class="text-xs text-emerald-400 font-semibold flex items-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5"></span> No Password Required
+          </span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Cloudflare CDN Public Tunnel</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+          Accessible worldwide across mobile phones, tablets, and any computer without entering an endpoint IP password.
+        </p>
+        <a href="https://benz-four-visits-warning.trycloudflare.com" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r from-brand-600 to-teal-600 text-white shadow-lg shadow-brand-900/50 hover:from-brand-500 hover:to-teal-500 hover:scale-[1.01] transition-all">
+          <span>🚀 Open Live Website (Full App Online)</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+
+      <!-- Localhost Server Link -->
+      <div class="relative group bg-gradient-to-br from-slate-900 via-slate-900 to-brand-950 p-6 rounded-2xl border-2 border-slate-700 shadow-xl hover:border-gold-400 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="bg-amber-500/20 text-gold-300 border border-amber-500/30 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+            💻 Localhost Link
+          </span>
+          <span class="text-xs text-emerald-400 font-semibold flex items-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5"></span> Port 3000 Active
+          </span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Local Development Server</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+          Runs locally on your Windows machine at <code class="text-gold-400 bg-slate-800 px-1 py-0.5 rounded">http://localhost:3000</code> with full database access.
+        </p>
+        <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-600 to-gold-600 text-slate-950 shadow-lg shadow-amber-900/30 hover:from-amber-500 hover:to-gold-500 hover:scale-[1.01] transition-all">
+          <span>⚡ Open Local Server (http://localhost:3000)</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Credentials & Demo Accounts -->
+    <div class="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-700">
+        <div>
+          <h2 class="text-lg font-bold text-white">🔑 Pre-Configured Demo Accounts</h2>
+          <p class="text-xs text-slate-400">You can use these credentials to sign in, or click the 1-click fill buttons on the login page.</p>
+        </div>
+        <span class="text-[11px] text-brand-300 bg-brand-950/80 px-2.5 py-1 rounded border border-brand-800 mt-2 sm:mt-0 font-medium">
+          Ready in Database
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Student -->
+        <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-700/80">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">👨‍🎓 Student Account</span>
+            <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5 rounded">SSC &amp; HSSC</span>
+          </div>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between items-center text-slate-300">
+              <span class="text-slate-400">Email:</span>
+              <code class="text-gold-300 font-mono">khan.hanan@student.fbise.edu.pk</code>
+            </div>
+            <div class="flex justify-between items-center text-slate-300">
+              <span class="text-slate-400">Password:</span>
+              <code class="text-gold-300 font-mono">StudentPassword123!</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin -->
+        <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-700/80">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">🛡️ Administrator Account</span>
+            <span class="text-[10px] bg-amber-950 text-gold-300 border border-amber-800 px-2 py-0.5 rounded">Full Control</span>
+          </div>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between items-center text-slate-300">
+              <span class="text-slate-400">Email:</span>
+              <code class="text-gold-300 font-mono">admin@fbise.edu.pk</code>
+            </div>
+            <div class="flex justify-between items-center text-slate-300">
+              <span class="text-slate-400">Password:</span>
+              <code class="text-gold-300 font-mono">AdminPassword123!</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Overview -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 text-center">
+      <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+        <div class="text-2xl mb-1">📚</div>
+        <div class="font-bold text-sm text-white">26+ FBISE Papers</div>
+        <div class="text-[11px] text-slate-400 mt-1">Class 9, 10, 11 &amp; 12 PDFs</div>
+      </div>
+      <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+        <div class="text-2xl mb-1">⏱️</div>
+        <div class="font-bold text-sm text-white">Daily Quizzes</div>
+        <div class="text-[11px] text-slate-400 mt-1">Instant marks &amp; timer</div>
+      </div>
+      <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+        <div class="text-2xl mb-1">🤖</div>
+        <div class="font-bold text-sm text-white">AI Paper Checker</div>
+        <div class="text-[11px] text-slate-400 mt-1">Marking rubric breakdown</div>
+      </div>
+      <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+        <div class="text-2xl mb-1">🏆</div>
+        <div class="font-bold text-sm text-white">Student Leaderboard</div>
+        <div class="text-[11px] text-slate-400 mt-1">Weekly &amp; daily rankings</div>
+      </div>
+    </div>
+
+    <!-- Quick Windows Run Instructions -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 text-xs text-slate-400 leading-relaxed">
+      <div class="font-bold text-slate-200 mb-2 flex items-center">
+        <span class="text-amber-400 mr-2">💡</span> اگر سرور بند ہو جائے تو دوبارہ چلانے کا آسان طریقہ:
+      </div>
+      <ol class="list-decimal list-inside space-y-1 text-slate-300">
+        <li>اسی فولڈر میں موجود <code class="text-gold-300 bg-slate-800 px-1.5 py-0.5 rounded">run.bat</code> پر ڈبل کلک کریں — ویب سائٹ خود بخود براؤزر میں کھل جائے گی۔</li>
+        <li>یا کمانڈ لائن میں صرف <code class="text-gold-300 bg-slate-800 px-1.5 py-0.5 rounded">npm run dev</code> یا <code class="text-gold-300 bg-slate-800 px-1.5 py-0.5 rounded">node index.js</code> لکھ کر انٹر کریں۔</li>
+      </ol>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0">
+      <div>© 2026 FBISE Study Hub. All rights reserved.</div>
+      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-950/80 border border-gold-500/30 text-slate-300 text-xs">
+        <span>Crafted with pride for Pakistani students</span>
+        <span class="text-slate-600">•</span>
+        <span class="font-bold text-gold-400 tracking-wide text-sm">Developed by Team Khan Hanan</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
